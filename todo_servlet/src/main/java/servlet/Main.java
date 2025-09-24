@@ -12,8 +12,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import model.PostTodoItemLogic;
 import model.TodoItem;
+import model.TodoItemLogic;
 import model.User;
 
 /**
@@ -52,16 +52,24 @@ public class Main extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		ServletContext application = this.getServletContext();
+		List<TodoItem> todoItemList = (List<TodoItem>)application.getAttribute("todoItemList");
 		String text = request.getParameter("text");
+		String action = request.getParameter ("action");
+		TodoItemLogic todoItemLogic = new TodoItemLogic();
 		
-		if (text != null && text.length() != 0) {
-			ServletContext application = this.getServletContext();
-			List<TodoItem> todoItemList = (List<TodoItem>)application.getAttribute("todoItemList");
+		if (action.equals("make") && text != null && text.length() != 0) {
+
 			TodoItem todoItem = new TodoItem(text);
-			PostTodoItemLogic postTodoItemLogic = new PostTodoItemLogic();
-			postTodoItemLogic.execute(todoItem, todoItemList);
+			todoItemLogic.add(todoItem, todoItemList);
 			 
+		} else if (action.equals("make")) {
+			//エラー表示用
+		} else {
+		    todoItemLogic.updateProgress(action, todoItemList);
 		}
+		
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/main.jsp");
 		dispatcher.forward(request, response);
 	}
