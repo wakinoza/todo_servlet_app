@@ -13,6 +13,7 @@ User loginUser = (User)session.getAttribute("loginUser");
 <body>
 <p>
 <%= loginUser.getName() %>さん、ログイン中
+<a href="Logout">ログアウト</a>
 </p>
 </body>
 </html>
