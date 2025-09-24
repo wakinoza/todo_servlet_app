@@ -1,5 +1,8 @@
 package model;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 /**.
  * todo情報を保持するクラス
  */
@@ -23,12 +26,13 @@ public class TodoItem {
    * コンストラクタ
    *
    * @param text テキスト入力欄の文字列情報
-   * @param progress 進捗情報を文字する列挙子
    */
-  public TodoItem(String fileName, String text, Progress progress) {
-    this.fileName = fileName;
+  public TodoItem(String text) {
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss");
+	LocalDateTime now = LocalDateTime.now();
+    this.fileName = formatter.format(now);
     this.text = text;
-    this.progress = progress;
+    this.progress = Progress.PENDING;
   }
 
   /**. getterメソッド*/
