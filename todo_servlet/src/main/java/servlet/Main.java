@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.PostTodoItemLogic;
 import model.TodoItem;
 import model.User;
 
@@ -50,8 +51,19 @@ public class Main extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
+		String text = request.getParameter("text");
+		
+		if (text != null && text.length() != 0) {
+			ServletContext application = this.getServletContext();
+			List<TodoItem> todoItemList = (List<TodoItem>)application.getAttribute("todoItemList");
+			TodoItem todoItem = new TodoItem(text);
+			PostTodoItemLogic postTodoItemLogic = new PostTodoItemLogic();
+			postTodoItemLogic.execute(todoItem, todoItemList);
+			 
+		}
+		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/main.jsp");
+		dispatcher.forward(request, response);
 	}
 
 }
