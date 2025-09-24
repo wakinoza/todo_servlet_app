@@ -8,7 +8,7 @@ User loginUser = (User)session.getAttribute("loginUser");
 <html>
 <head>
 <meta charset="UTF-8">
-<title>todo管理画面</title>
+<title>Todo管理ページ</title>
 </head>
 <body>
 <p>
