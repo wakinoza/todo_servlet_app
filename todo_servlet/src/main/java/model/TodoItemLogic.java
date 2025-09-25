@@ -2,7 +2,6 @@ package model;
 
 import java.util.List;
 
-
 /**.
  * TodoItemインスタンスをショルするクラス
  */
@@ -20,12 +19,12 @@ public class TodoItemLogic {
 	/**.
 	 * 指定されたファイル名を持つTodoItemインスタンスの身長を更新するメソッド
 	 * @param fileName 指定するファイル名
-	 * @param todoItemList TodoItemのList
+	 * @param todoItemList TodoItem
 	 */
 	public void updateProgress(String fileName, List<TodoItem> todoItemList) {
 		for (int i  = 0; i < todoItemList.size(); i++) {
 			TodoItem cuttentTodo = todoItemList.get(i);
-			if(cuttentTodo.getFileName().equals(fileName)) {
+			if(cuttentTodo.getFileName().trim().equalsIgnoreCase(fileName.trim())) {
 				if (cuttentTodo.getProgress() == Progress.PENDING) {
 					cuttentTodo.setProgress(Progress.IN_PROGRESS);
 				} else if (cuttentTodo.getProgress() == Progress.IN_PROGRESS) {

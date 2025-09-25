@@ -17,7 +17,7 @@ public class TodoItem {
   private Progress progress;
 
   /**.
-   * JSONファイル用のコンストラクタ
+   * 引数なしのコンストラクタ
    *
    */
   public TodoItem() { }
@@ -28,7 +28,7 @@ public class TodoItem {
    * @param text テキスト入力欄の文字列情報
    */
   public TodoItem(String text) {
-	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss");
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
 	LocalDateTime now = LocalDateTime.now();
     this.fileName = formatter.format(now);
     this.text = text;

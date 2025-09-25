@@ -67,8 +67,9 @@ public class Main extends HttpServlet {
 	        }
 	    } else {
 	        todoItemLogic.updateProgress(action, todoItemList);
+	        
 	    }
-		
+	    application.setAttribute("todoItemList", todoItemList);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/main.jsp");
 		dispatcher.forward(request, response);
 	}
