@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="model.User, odel.TodoItem, Model.Progress, java.util.List" %>
+<%@ page import="model.User, model.TodoItem, model.Progress, java.util.List" %>
 <% 
 User loginUser = (User)session.getAttribute("loginUser");
 List<TodoItem> todoItemList = (List<TodoItem>)application.getAttribute("todoItemList");
