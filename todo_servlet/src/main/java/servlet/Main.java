@@ -58,17 +58,16 @@ public class Main extends HttpServlet {
 		String action = request.getParameter ("action");
 		TodoItemLogic todoItemLogic = new TodoItemLogic();
 		
-		if ("make".equals(action)  && text != null && text.length() != 0) {
-
-			TodoItem todoItem = new TodoItem(text);
-			todoItemLogic.add(todoItem, todoItemList);
-			 
-		} else if ("make".equals(action)) {
-			//エラー表示用
-		} else {
-		    todoItemLogic.updateProgress(action, todoItemList);
-		}
-		
+	    if ("make".equals(action)) {
+	        if (text != null && !text.isEmpty()) {
+	            TodoItem todoItem = new TodoItem(text);
+	            todoItemLogic.add(todoItem, todoItemList);
+	        } else {
+	            request.setAttribute("errorMsg", "Todoを入力してください。");
+	        }
+	    } else {
+	        todoItemLogic.updateProgress(action, todoItemList);
+	    }
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/main.jsp");
 		dispatcher.forward(request, response);

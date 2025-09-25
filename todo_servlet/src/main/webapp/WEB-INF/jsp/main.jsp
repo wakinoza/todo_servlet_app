@@ -4,6 +4,7 @@
 <% 
 User loginUser = (User)session.getAttribute("loginUser");
 List<TodoItem> todoItemList = (List<TodoItem>)application.getAttribute("todoItemList");
+String errorMsg = (String )request.getAttribute("errorMsg");
 String pending = "未実施";
 String in_progress = "実施中";
 String completed = "完了済";
@@ -24,6 +25,9 @@ String completed = "完了済";
 <input type="text" name="text">
 <input type="submit" value="Todoを新規追加">
 </form>
+<% if (errorMsg != null) { %>
+<p><%= errorMsg %></p>
+<%  } %>
 <% 
 for (TodoItem todoItem : todoItemList) {
     if (todoItem.getProgress() == Progress.PENDING) { 
