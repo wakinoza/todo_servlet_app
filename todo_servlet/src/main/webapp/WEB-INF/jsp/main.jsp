@@ -19,8 +19,8 @@ String completed = "完了済";
 <%= loginUser.getName() %>さん、ログイン中
 <a href="Logout">ログアウトする</a>
 </p>
-<p><a href="Main?action=make">画面を更新する</a></p>
-<form action="Main" method="post">
+<p><a href="Main">画面を更新する</a></p>
+<form action="Main?action=make" method="post">
 <input type="text" name="text">
 <input type="submit" value="Todoを新規追加">
 </form>

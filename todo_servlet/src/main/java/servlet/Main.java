@@ -58,12 +58,12 @@ public class Main extends HttpServlet {
 		String action = request.getParameter ("action");
 		TodoItemLogic todoItemLogic = new TodoItemLogic();
 		
-		if (action.equals("make") && text != null && text.length() != 0) {
+		if ("make".equals(action)  && text != null && text.length() != 0) {
 
 			TodoItem todoItem = new TodoItem(text);
 			todoItemLogic.add(todoItem, todoItemList);
 			 
-		} else if (action.equals("make")) {
+		} else if ("make".equals(action)) {
 			//エラー表示用
 		} else {
 		    todoItemLogic.updateProgress(action, todoItemList);
