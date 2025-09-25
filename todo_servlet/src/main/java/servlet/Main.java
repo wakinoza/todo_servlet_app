@@ -17,7 +17,7 @@ import model.TodoItemLogic;
 import model.User;
 
 /**
- * Servlet implementation class Main
+ * メイン画面の処理を司るサーブレット
  */
 @WebServlet("/Main")
 public class Main extends HttpServlet {

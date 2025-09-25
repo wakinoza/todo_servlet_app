@@ -13,7 +13,7 @@ import model.LoginLogic;
 import model.User;
 
 /**
- * ログインリクエストを処理するcontrollerクラス
+ * ログイン処理するサーブレットクラス
  */
 @WebServlet("/Login")
 public class Login extends HttpServlet {
