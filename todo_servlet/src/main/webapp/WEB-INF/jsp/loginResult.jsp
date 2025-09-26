@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,14 +10,14 @@
 <body>
 <h1>Todoログイン</h1>
 <c:choose>
- <c:when test="${loginUser != null}">
+ <c:when test="${empty loginUser}">
+  <p>ログインに失敗しました</p>
+  <a href="index.jsp">TOPへ</a>
+ </c:when>
+ <c:otherwise>
   <p>ログインに成功しました</p>
   <p>ようこそ ${loginUser.name}さん</p>
   <a href="Main">Todo一覧を確認する</a>
- </c:when>
- <c:otherwise>
-  <p>ログインに失敗しました</p>
-  <a href="index.jsp">TOPへ</a>
  </c:otherwise>
 </c:choose>
 </body>
