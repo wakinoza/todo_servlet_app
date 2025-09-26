@@ -16,7 +16,7 @@ String completed = "完了済";
 </head>
 <body>
 <p>
-<c:out value=＄{loginUser.name} />さん、ログイン中
+<c:out value="${loginUser.name}" />さん、ログイン中
 <a href="Logout">ログアウトする</a>
 </p>
 <p><a href="Main">画面を更新する</a></p>
@@ -27,12 +27,12 @@ String completed = "完了済";
 <c:if test="not empty errorMsg">
 <p><%= errorMsg %></p>
 </c:if>
-<c:forEach var="todoItem" items="todoItemList">
+<c:forEach var="todoItem" items="${todoItemList}">
   <c:choose>
-   <c:when test="todoItem.progress = Progress.PENDING"> 
+   <c:when test="${todoItem.progress == 'PENDING'}"> 
 	<p><%= pending %> : ${todoItem.text} : <a href="Main?action=${todoItem.fileName}">進捗を更新</a></p>
    </c:when>
-   <c:when test="todoItem.progress = Progress.IN_PROGRESS"> 
+   <c:when test="${todoItem.progress == 'IN_PROGRESS'}"> 
 	<p><%= in_progress %> : ${todoItem.text} : <a href="Main?action=${todoItem.fileName}">進捗を更新</a></p>
    </c:when>
    <c:otherwise>
