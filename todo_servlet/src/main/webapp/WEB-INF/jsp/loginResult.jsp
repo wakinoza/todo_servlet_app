@@ -8,7 +8,7 @@
 <title>Todo管理ページ</title>
 </head>
 <body>
-<h1>Todoログイン</h1>
+<h1>Todo管理ページログイン</h1>
 <c:choose>
  <c:when test="${empty loginUser}">
   <p>ログインに失敗しました</p>
