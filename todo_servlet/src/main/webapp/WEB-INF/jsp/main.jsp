@@ -36,7 +36,7 @@ String completed = "完了済";
   </c:when>
   <c:otherwise>
   　<div style="margin: 5px; background-color:#1760a0; color:white; padding-left: 10px;">
-    　<h2>Todo一覧</h2>
+    　<h2　style="margin: 0;">Todo一覧</h2>
     </div>
   </c:otherwise>
 </c:choose>
