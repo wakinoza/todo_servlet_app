@@ -3,39 +3,39 @@ package model;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-/**.
- * todo情報を保持するクラス
+/**
+ * . todo情報を保持するクラス
  */
 public class TodoItem {
-  /**. JSONファイルのファイル名*/
-  private  String fileName;
+  /** . JSONファイルのファイル名 */
+  private String fileName;
 
-  /**. テキスト入力欄の文字列情報*/
-  private  String text;
+  /** . テキスト入力欄の文字列情報 */
+  private String text;
 
-  /**. 進捗情報を文字する列挙子*/
+  /** . 進捗情報を文字する列挙子 */
   private Progress progress;
 
-  /**.
-   * 引数なしのコンストラクタ
+  /**
+   * . 引数なしのコンストラクタ
    *
    */
-  public TodoItem() { }
+  public TodoItem() {}
 
-  /**.
-   * コンストラクタ
+  /**
+   * . コンストラクタ
    *
    * @param text テキスト入力欄の文字列情報
    */
   public TodoItem(String text) {
-	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
-	LocalDateTime now = LocalDateTime.now();
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+    LocalDateTime now = LocalDateTime.now();
     this.fileName = formatter.format(now);
     this.text = text;
     this.progress = Progress.PENDING;
   }
 
-  /**. getterメソッド*/
+  /** . getterメソッド */
   public String getFileName() {
     return this.fileName;
   }
@@ -48,7 +48,7 @@ public class TodoItem {
     return this.progress;
   }
 
-  /**. setterメソット*/
+  /** . setterメソット */
   public void setFileName(String fileName) {
     this.fileName = fileName;
   }
