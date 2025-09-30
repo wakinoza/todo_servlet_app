@@ -41,7 +41,7 @@
 
 言語: Java SE 21
 
-ライブラリ: JSP/Servlet, JSTL
+ライブラリ: Servlet/JSP, JSTL
 
 開発ツール: Eclipse 2023_12
 
